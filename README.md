@@ -53,6 +53,12 @@ An simple AngularJS directive for Twitter's [Typeahead.js](https://github.com/tw
     };
     ```
 
+## Bootstrap Integration
+
+Twitter's Typeahead.js supports [bootstrap 2.x integration](https://github.com/twitter/typeahead.js/#bootstrap-integration) currently. Here is a quick hack to get it working with form-control/ie8 in bootstrap 3 rc1.
+
+* [angular-typeahead-bootstrap-3.css](https://github.com/icereval/angular-typeahead/blob/master/angular-typeahead-bootstrap-3.css)
+
 ## Changelog
 
 #### 0.5.x
