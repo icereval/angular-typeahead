@@ -1,0 +1,19 @@
+/* be sure to load the bootstrap css from typeahead.js */
+/* https://github.com/twitter/typeahead.js/#bootstrap-integration */
+
+/* a few hacks to get ie8/form-control working */
+
+.twitter-typeahead {
+    display: block !important;
+}
+
+.tt-hint {
+    margin-top: 1px;
+    margin-left: 1px;
+    height: 36px;
+    padding: 6px 10px;
+    font-size: 14px;
+    line-height: 1.428571429;
+    color: #555;
+    background-color: transparent;
+}
