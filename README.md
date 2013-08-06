@@ -1,6 +1,6 @@
 # Angular-Typeahead
 
-An simple AngularJS directive for Twitter's [Typeahead.js](https://github.com/twitter/typeahead.js) and [Bootstrap 2/3 RC1](http://getbootstrap.com/) which supports an `remote dataset` object array, `filter` and `selectedItem`.
+An simple AngularJS directive for Twitter's [Typeahead.js](https://github.com/twitter/typeahead.js) and [Bootstrap 2/3 RC1](http://getbootstrap.com/) with support for `remote dataset` object array, `filter` and `selectedItem`.
 
 ## Usage
 
