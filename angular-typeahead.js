@@ -2,11 +2,12 @@
 
 angular.module('typeahead.directives', []);
 
-angular.module('typeahead.directives', []).directive('ngTypeahead', function () {
+angular.module('typeahead.directives', []).directive('ngTypeahead', function ($parse) {
     return {
         restrict: 'A',
         scope: {
             filter: '&',
+            ngModel: '=',
             selectedItem: '='
         },
         link: function (scope, element, attrs) {
@@ -31,13 +32,31 @@ angular.module('typeahead.directives', []).directive('ngTypeahead', function () 
                 }
             }, true);
 
+            element.on('change', function (event) {
+                if (attrs.ngModel) {
+                    scope.ngModel = $(event.target).val();
+                }
+
+                scope.$apply();
+            });
+
             element.on('typeahead:selected', function (event, datum, dataset) {
                 scope.selectedItem = datum;
+
+                if (attrs.ngModel) {
+                    scope.ngModel = $(event.target).val();
+                }
+
                 scope.$apply();
             });
 
             element.on('typeahead:autocompleted', function (event, datum, dataset) {
                 scope.selectedItem = datum;
+
+                if (attrs.ngModel) {
+                    scope.ngModel = $(event.target).val();
+                }
+
                 scope.$apply();
             });
 
