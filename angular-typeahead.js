@@ -8,10 +8,12 @@ angular.module('typeahead.directives', []).directive('ngTypeahead', function ($p
         scope: {
             filter: '&',
             ngModel: '=',
-            selectedItem: '='
+            selectedItem: '=',
+            limit: '=',
+            rateLimitWait: '='
         },
         link: function (scope, element, attrs) {
-            element.typeahead({
+            var construct = {
                 valueKey: attrs.valueKey,
                 remote: {
                     url: attrs.url,
@@ -23,8 +25,18 @@ angular.module('typeahead.directives', []).directive('ngTypeahead', function ($p
 
                         return parsedResponse;
                     }
-                },
-            });
+                }
+            };
+
+            if (attrs.limit) {
+                construct.limit = attrs.limit;
+            }
+
+            if (attrs.rateLimitWait) {
+                construct.remote.rateLimitWait = attrs.rateLimitWait;
+            }
+
+            element.typeahead(construct);
 
             scope.$watch('selectedItem', function (newValue) {
                 if (newValue === '') {
